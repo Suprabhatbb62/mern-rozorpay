@@ -5,7 +5,7 @@ function ProductCard() {
     const handlePayment = async () => {
         console.log(amount);
         try {
-            const response = await fetch(`http://localhost:8000/api/payment/order`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payment/order`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function ProductCard() {
             handler: async (response) => {
                 console.log("handler response", response);
                 try {
-                    const res = await fetch(`http://localhost:8000/api/payment/verify`, {
+                    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/payment/verify`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
